@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://bookingapi-b86e.restdb.io/rest/bookings`,
+    fetch(`https://cors-anywhere.herokuapp.com/https://bookingapi-b86e.restdb.io/rest/bookings`,
   {
     headers: new Headers({
       'x-apikey' : API_KEY
@@ -27,6 +27,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then(
         (result) => {
+          result.sort((a,b) => a.datetime.localeCompare(b.datetime) )
           this.setState({ bookings: result })
         },
         (error) => {

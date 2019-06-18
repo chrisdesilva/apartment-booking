@@ -4,7 +4,7 @@
 }
 
 .App {
-    background: rgb(190, 190, 190);
+    background: rgb(230, 230, 230);
     height: 100vh;
 }
 
@@ -37,5 +37,5 @@
 }
 
 #tableHeader {
-  background: rgb(190, 190, 190);  
+  background: rgb(230, 230, 230); 
 }

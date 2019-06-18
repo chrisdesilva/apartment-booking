@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import moment from 'moment';
+import _ from 'lodash';
 
 const BookingList = props => {
     return (
@@ -20,7 +21,7 @@ const BookingList = props => {
                 </Table.Header>
                 <Table.Body>
                     {props.bookings.map(booking => {
-                        return <Table.Row verticalAlign="top">
+                        return <Table.Row key={booking._id} verticalAlign="top">
                             <Table.Cell>{booking.name}</Table.Cell>
                             <Table.Cell>{booking.email}</Table.Cell>
                             <Table.Cell>
