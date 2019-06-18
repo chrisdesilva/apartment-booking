@@ -1,13 +1,16 @@
 import React from 'react';
 import { Table } from 'semantic-ui-react';
 import moment from 'moment';
-import _ from 'lodash';
+import BookingModal from './BookingModal';
 
 const BookingList = props => {
     return (
         <div className="bookingList" >
             <div id="bookingHeader">
                 <h2>Bookings</h2>
+                <BookingModal 
+                    bookings={props.bookings}
+                />
             </div>
             <Table id="table">
                 <Table.Header>
@@ -38,4 +41,4 @@ const BookingList = props => {
     )
 }
 
-export default BookingList
+export default BookingList;

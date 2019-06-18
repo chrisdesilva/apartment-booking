@@ -1,8 +1,3 @@
-#h1 {
-    margin: 0;
-    font-size: 1rem;
-}
-
 .App {
     background: rgb(230, 230, 230);
     height: 100vh;
@@ -12,12 +7,27 @@
     padding: 1rem;
 }
 
+#bookingButton {
+    background-color: #F39748;
+    box-shadow: 0 1px 2px black;
+}
+
 #bookingCity {
     text-transform: capitalize;
 }
 
+#bookingHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
 #bookingType {
     text-transform: capitalize;
+}
+
+#h1 {
+    margin: 0;
+    font-size: 1rem;
 }
 
 #header {

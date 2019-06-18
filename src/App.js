@@ -8,12 +8,6 @@ const API_KEY = `${process.env.REACT_APP_API_KEY}`
 class App extends React.Component {
 
   state = {
-    email: null,
-    name: null,
-    address: null,
-    bookingType: null,
-    bookingData: null,
-    bookingTime: null,
     bookings: []
   }
 
