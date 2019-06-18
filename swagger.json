@@ -1,0 +1,155 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "bookingapi REST API",
+    "description": "**restdb.io Swagger documentation**"
+  },
+  "host": "see email for API URL",
+  "basePath": "/rest",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "apikey": {
+      "type": "apiKey",
+      "name": "x-apikey",
+      "in": "header",
+      "description": "Requests should pass an x-apikey header."
+    }
+  },
+  "security": [
+    {
+      "apikey": []
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "bookings",
+      "description": "Create and list bookings",
+      "externalDocs": {
+        "description": "Docs",
+        "url": "http://restdb.io/docs"
+      }
+    }
+  ],
+  "paths": {
+    "/bookings": {
+      "get": {
+        "summary": "Get full list of bookings",
+        "description": "",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "type": "string",
+            "description": "Optional service type filter (housekeeping|dogwalk)",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/users"
+              }
+            }
+          },
+          "500": {
+            "description": "Server error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a booking",
+        "description": "",
+        "parameters": [
+          {
+            "name": "objectid",
+            "in": "path",
+            "description": "Unique ObjectID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Modified ok"
+          },
+          "400": {
+            "description": "Validation error"
+          },
+          "404": {
+            "description": "Document not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "users": {
+      "type": "object",
+      "required": [
+        "name",
+        "active",
+        "address",
+        "street",
+        "city",
+        "state",
+        "zip",
+        "bookingtype",
+        "datetime"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Customer name"
+        },
+        "email": {
+          "type": "string",
+          "description": "Customer email"
+        },
+        "address": {
+          "type": "string",
+          "description": "Customer street address"
+        },
+        "city": {
+          "type": "string",
+          "description": "Customer city"
+        },
+        "state": {
+          "type": "string",
+          "description": "Customer state"
+        },
+        "zip": {
+          "type": "number",
+          "description": "Customer zip code"
+        },
+        "bookingtype": {
+          "type": "string",
+          "description": "Booking type (housekeeping|dogwalk)"
+        },
+        "datetime": {
+          "type": "string",
+          "description": "Booking date and time"
+        }
+      }
+    }
+  }
+}
