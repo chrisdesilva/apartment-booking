@@ -29,7 +29,7 @@ const BookingList = props => {
                             <Table.Cell>{booking.email}</Table.Cell>
                             <Table.Cell>
                                 {booking.address} <br />
-                                <span id="bookingCity">{booking.city.toLowerCase()}</span>, {booking.state}, {booking.zip}
+                                <span id="bookingCity">{booking.city.toLowerCase()}</span>, {booking.state.toUpperCase()}, {booking.zip}
                             </Table.Cell>
                             <Table.Cell id="bookingType">{booking.bookingtype.split('w').join(' w')}</Table.Cell>
                             <Table.Cell>{moment(booking.datetime).format("MMMM D, YYYY [at] h:mm a")}</Table.Cell>
